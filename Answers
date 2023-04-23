@@ -1,0 +1,13 @@
+Ques : Explain what the simple List component does?
+Answer : The simple List component is a React component that takes an array of items and renders them as a list of items.
+
+
+Ques: What problems / warnings are there with code?
+Answer : The code will give following Warnings :
+1.In the SingleListItem component, the onClickHandler function is being called immediately when the component is rendered instead of being called when the item is clicked. This can cause errors and should be fixed by wrapping the onClickHandler function in an arrow function to defer the call until the item is clicked.
+
+2.The selectedIndex state variable in the ListComponent component is not initialized with a default value. This can cause errors when it is used before being set, so it should be initialized to null.
+
+3.In the ListComponent component, the isSelected prop passed to the SingleListItem component is not a boolean value, which is expected by the WrappedSingleListItem component. Instead, it is the selectedIndex state variable, which is a number. This can cause errors and should be fixed by comparing index with selectedIndex in the handleClick function and passing the correct boolean value to the SingleListItem component.
+
+4.The items prop in the WrappedListComponent component is not properly defined. Instead of PropTypes.array(PropTypes.shapeOf({ text: PropTypes.string.isRequired })), it should be PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string.isRequired })).
